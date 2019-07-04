@@ -10,3 +10,4 @@ License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Imports: osmdata
+RoxygenNote: 6.1.1
