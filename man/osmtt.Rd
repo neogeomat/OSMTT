@@ -2,7 +2,7 @@
 % Please edit documentation in R/osmtt.R
 \name{osmtt}
 \alias{osmtt}
-\title{Get how the osm data looked at past time}
+\title{Get how the osm data looked at certain time}
 \usage{
 osmtt(bbox, datetime)
 }
@@ -12,8 +12,8 @@ osmtt(bbox, datetime)
 \item{datetime}{The timestamp where you want the data}
 }
 \description{
-Get how the osm data looked at past time
+Get how the osm data looked at certain time
 }
 \examples{
-plot(osmtt("muenster",""))
+osmtt("bhaktapur","2019-01-01T12:00:00Z")
 }
