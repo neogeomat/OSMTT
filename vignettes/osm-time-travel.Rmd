@@ -1,0 +1,29 @@
+---
+title: "Osm Time Travel"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Osm Time Travel}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## 1. Introduction
+OSM Overpass Api supports query for attic data but this feature has not been implemented in R. This issue is discovered [here][1]. This package is made with intention of extending the [Osmdata][2] package with the attic functions. It has 2 classes to handle attic data `osmtt` and `osmttdiff`. Osmtt represents data from a previous timestamp and osmttdiff represents changes in data between the given time frame.
+
+## 2. Attic Functions
+[Attic settings][3] in overpass-api are *date,diff and adiff*. *date* returns results based on the OpenStreetMap database as of the date specified. *Diff* lets the database determine the difference of two queries at different points in time. *Adiff* is same like *diff*, but for all elements that aren't contained in the newer result, it is indicated what happened to them. In this package `add_date` and `add_adiff`, are implemented. *diff* is omitted since *adiff* gives more details than *diff*.
+
+## 3. Classes
+
+**osmtt**
+
+`osmtt` adds *datetime* parameters to `overpass_query` class which is then passed onto the actual query. The return from `overpass_query` and `osmtt` has the same structure so `osmtt` works similar to `overpass_query`. A **[bug][4]** in the `osmdata` package was found during this implementation. It has been fixed and pull request has been sent.
+
+**osmttdiff**
+`osmttdiff` handles the diff results from adiff setting. It separates elements according to create, modify and delete tags.
+
+  [1]: https://github.com/ropensci/osmdata/issues/179
+  [2]: https://cran.r-project.org/web/packages/osmdata/index.html
+  [3]: https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date
+  [4]: https://github.com/ropensci/osmdata/issues/180
+
