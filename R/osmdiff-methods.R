@@ -22,6 +22,10 @@ read.osmttdiff <- function(obj,doc){
 print.osmtt <- function(x){
   osmdata::opq_string(x)
 }
+
+plot.osmdata <- function(x) {
+  plot(sf::st_geometry(x$osm_points))
+}
 print.osmttdiff <- function(obj){
 
 }
