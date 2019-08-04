@@ -20,7 +20,7 @@ OSM Overpass Api supports query for attic data but this feature has not been imp
 `osmtt` adds *datetime* parameters to `overpass_query` class which is then passed onto the actual query. The return from `overpass_query` and `osmtt` has the same structure so `osmtt` works similar to `overpass_query`. A **[bug][4]** in the `osmdata` package was found during this implementation. It has been fixed and pull request has been sent.
 
 **osmttdiff**
-`osmttdiff` handles the diff results from adiff setting. It separates elements according to create, modify and delete tags.
+`osmttdiff` handles the diff results from adiff setting. It separates elements according to create, modify and delete actions. Also it separates the new and old ones.
 
   [1]: https://github.com/ropensci/osmdata/issues/179
   [2]: https://cran.r-project.org/web/packages/osmdata/index.html

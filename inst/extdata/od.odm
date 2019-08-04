@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="Overpass API 0.7.55.7 8b86ff77">
   <note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
-  <meta osm_base="2019-08-04T13:17:03Z"/>
-  <remark> runtime error: Relation 2186658 cannot be expanded at timestamp 2019-06-01T11:38:24Z. </remark>
-  <remark> runtime error: Relation 2186658 cannot be expanded at timestamp 2019-04-30T18:54:39Z. </remark>
-  <remark> runtime error: Relation 2186658 cannot be expanded at timestamp 2019-04-30T18:54:38Z. </remark>
-  <remark> runtime error: Relation 2186658 cannot be expanded at timestamp 2019-04-30T18:49:50Z. </remark>
-  <remark> runtime error: Relation 2186658 cannot be expanded at timestamp 2019-04-30T18:49:49Z. </remark>
-  <remark> runtime error: Relation 2186658 cannot be expanded at timestamp 2019-04-30T14:45:27Z. </remark>
+  <meta osm_base="2019-08-04T22:06:03Z"/>
   <action type="modify">
     <old>
       <node id="2153755453" lat="9.8930507" lon="8.8803224"/>

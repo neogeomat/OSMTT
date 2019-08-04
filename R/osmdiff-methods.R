@@ -18,3 +18,10 @@ read.osmttdiff <- function(obj,doc){
     obj$doc <- doc
     return(obj)
 }
+
+print.osmtt <- function(x){
+  osmdata::opq_string(x)
+}
+print.osmttdiff <- function(obj){
+
+}
