@@ -36,7 +36,7 @@ add_date <- function (opq,datetime)
 add_adiff <- function (opq,olddatetime,newdatetime)
 {
   olddatetime_string <- as.character(olddatetime,format = "%Y-%m-%dT%H:%M:%SZ")
-  if(!newdatetime){
+  if(missing(newdatetime)){
     newdatetime = Sys.time()
     }
   newdatetime_string <- as.character(newdatetime,format = "%Y-%m-%dT%H:%M:%SZ")

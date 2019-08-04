@@ -8,7 +8,7 @@
 osmtt <- function(bbox,datetime, ...){
   bbox <- osmdata::getbb(bbox)
   oq <- osmdata::opq(bbox = bbox, ...)
-  add_date(oq,datetime)
+  oq <- add_date(oq,datetime)
   oq$datetime <- datetime
   class (oq) <- append ("osmtt",class (oq))
   oq
@@ -22,7 +22,7 @@ osmtt <- function(bbox,datetime, ...){
 osmadiff <- function(bbox,datetime){
   bbox <- osmdata::getbb(bbox)
   oq <- osmdata::opq(bbox = bbox)
-  add_adiff(oq,datetime)
+  oq <- add_adiff(oq,datetime)
 
   return(oq)
 }
