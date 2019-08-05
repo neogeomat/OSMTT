@@ -23,6 +23,6 @@ osmadiff <- function(bbox,datetime){
   bbox <- osmdata::getbb(bbox)
   oq <- osmdata::opq(bbox = bbox)
   oq <- add_adiff(oq,datetime)
-
+  class (oq) <- append ("osmdiff",class (oq))
   return(oq)
 }
