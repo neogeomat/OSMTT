@@ -1,24 +1,17 @@
-read.osmttdiff <- function(obj,doc){
-  if (missing (doc))
-  {
-    doc <- osmdata:::overpass_query (query = obj$overpass_call, quiet = quiet,
-                           encoding = encoding)
+print.osmttdiff <- function(obj){
 
-    docx <- xml2::read_xml (doc)
-    obj$meta <- list (timestamp = get_timestamp (docx),
-                      OSM_version = get_osm_version (docx),
-                      overpass_version = get_overpass_version (docx))
-  } else
-    if (is.character (doc))
-    {
-      if (!file.exists (doc))
-        stop ("file ", doc, " does not exist")
-      doc <- xml2::read_xml (doc)
-    }
-    obj$doc <- doc
-    return(obj)
 }
 
-print.osmttdiff <- function(obj){
+#' Converts overpass diff xml to osmttdiff object
+#'
+#' @param xml xml document from overpass diff query
+#' @export
+#' @examples
+#' \dontrun{
+#' (od<-osmadiff("sanga","2019-01-01T12:00:00Z"))
+#' odd<-osmdata:::overpass_query(osmdata::opq_string(od))
+#' osmttdiff_sf(odd) -> odd_sf
+#' }
+osmttdiff_sf <- function(xml){
 
 }

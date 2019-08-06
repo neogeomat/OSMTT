@@ -2,9 +2,8 @@
 #'
 #' @param opq An`overpass_query` object
 #' @param datetime datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z
-#' @return \link{opq} object
-#' @references
-#' <https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date>
+#' @return osmtt object
+#' @references \url{https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date}
 #' @export
 #' @examples
 #' \dontrun{
@@ -24,16 +23,15 @@ add_date <- function (opq,datetime)
 #' @param opq An`overpass_query` object
 #' @param olddatetime datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z
 #' @param newdatetime optional: datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z, if empty current time is used
-#' @return \link{opq} object
-#' @references
-#' <https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date>
+#' @return osmdiff object
+#' @references \url{https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date}
 #' @export
 #' @examples
 #' \dontrun{
 #' oq <- osmdata::opq('bhaktapur')
 #' add_date(oq,datetime)
 #' }
-add_adiff <- function (opq,olddatetime,newdatetime)
+add_adiff <- function (opq, olddatetime, newdatetime)
 {
   olddatetime_string <- as.character(olddatetime,format = "%Y-%m-%dT%H:%M:%SZ")
   if(missing(newdatetime)){

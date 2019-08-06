@@ -12,7 +12,7 @@ add_date(opq, datetime)
 \item{datetime}{datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z}
 }
 \value{
-\link{opq} object
+osmtt object
 }
 \description{
 Add date attribute to overpass query
@@ -24,5 +24,5 @@ add_date(oq,datetime)
 }
 }
 \references{
-<https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date>
+\url{https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date}
 }

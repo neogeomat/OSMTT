@@ -14,7 +14,7 @@ add_adiff(opq, olddatetime, newdatetime)
 \item{newdatetime}{optional: datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z, if empty current time is used}
 }
 \value{
-\link{opq} object
+osmdiff object
 }
 \description{
 Add adiff attribute to overpass query
@@ -26,5 +26,5 @@ add_date(oq,datetime)
 }
 }
 \references{
-<https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date>
+\url{https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date}
 }

@@ -8,3 +8,5 @@
 /doc
 /anRpackage
 vignettes/osm-time-travel.html
+packrat/lib*/
+packrat/src/
