@@ -1,4 +1,4 @@
-#' osmdiff class def
+#' osmttdiff class def
 #'
 #' @param bbox bounding box
 #' @param file previous export
@@ -10,7 +10,7 @@
 #' to provide access to the print method
 #'
 #' @export
-osmdiff <- function (bbox = NULL, file = NULL, base_url = "http://overpass-api.de/api",
+osmttdiff <- function (bbox = NULL, file = NULL, base_url = "http://overpass-api.de/api",
                      silent = FALSE)
 {
   obj <- list (
@@ -21,6 +21,6 @@ osmdiff <- function (bbox = NULL, file = NULL, base_url = "http://overpass-api.d
     modify = list(),
     delete = list()
     )
-  class (obj) <- append (class (obj), "osmadiff")
+  class (obj) <- append (class (obj), "osmttdiff")
   return (obj)
 }

@@ -6,21 +6,70 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
+This vignettes consists of 
 
-## 1. Introduction
-OSM Overpass Api supports query for attic data but this feature has not been implemented in R. This issue is discovered [here][1]. This package is made with intention of extending the [Osmdata][2] package with the attic functions. It has 2 classes to handle attic data `osmtt` and `osmttdiff`. Osmtt represents data from a previous timestamp and osmttdiff represents changes in data between the given time frame.
+* [1. Introduction](#ch1)
+* [2. Attic Functions](#ch2)
+* [3. Classes and methods](#ch3)
+* [4. How to use](#ch4)
+* [5. Future work](#ch5)
 
-## 2. Attic Functions
+## 1. Introduction {ch1}
+OSM Overpass Api supports query for attic data but this feature has not been implemented in R. This issue is discovered [here][1]. This package is made with intention of extending the [Osmdata][2] package with the attic functions. It has 2 classes to handle attic data `osmtt` and `osmttdiff`. Osmtt represents data from a previous timestamp and osmttdiff represents changes in data between the given time frame. 
+
+## 2. Attic Functions {ch2}
 [Attic settings][3] in overpass-api are *date,diff and adiff*. *date* returns results based on the OpenStreetMap database as of the date specified. *Diff* lets the database determine the difference of two queries at different points in time. *Adiff* is same like *diff*, but for all elements that aren't contained in the newer result, it is indicated what happened to them. In this package `add_date` and `add_adiff`, are implemented. *diff* is omitted since *adiff* gives more details than *diff*.
 
-## 3. Classes
+## 3. Classes and methods
 
-**osmtt**
+### Class: 
+### 1. osmtt
 
 `osmtt` adds *datetime* parameters to `overpass_query` class which is then passed onto the actual query. The return from `overpass_query` and `osmtt` has the same structure so `osmtt` works similar to `overpass_query`. A **[bug][4]** in the `osmdata` package was found during this implementation. It has been fixed and pull request has been sent.
 
-**osmttdiff**
+#### Methods 
+* print: Print returns the overpass query string from the object, it can be passed to overpass-api from browser too.
+* plot: Plots the points and lines from osmdata object
+* osmtt_sf: queries overpass object and converts to osmdata object
+
+### 2. osmttdiff
 `osmttdiff` handles the diff results from adiff setting. It separates elements according to create, modify and delete actions. Also it separates the new and old ones.
+
+#### Methods
+* print: 
+* osmttdiff_sf:
+
+## 4. How to use
+Attic data may not be supporeted by all overpass servers. First step is to find one which can handle the query.
+```{r}
+# new_url <- "http://overpass-api.de/api/interpreter"
+# osmdata::set_overpass_url(new_url)
+```
+To get the instance of osm database at a previous version in time, Use `osmtt` object.
+```{r}
+# op <- osmtt("sudal nepal","2019-01-01T12:00:00Z")
+```
+Convert it to osmdata_sf object from `osmdata` package.
+```{r}
+# op_sf <- osmtt_sf(op)
+```
+Other formats can also be used by directly using the `osmdata` package methods
+```{r}
+# osmdata::osmdata_sp(op)
+# osmdata::osmdata_xml(op)
+```
+(Note: Queries are commented because query quota was exceeded)
+
+## 5. Issues, Challenges and Further Works 
+### 5.1 Issues:
+* When overpass api is busy, `osmttdiff` does not handle wait and retry.
+* `osmtt` uses native call to C for parsing in `osmtt_sf`, but is not available in `osmttdiff`. Hence `osmttdiff` processing is slower.
+* Writing `xml` output to file is supported but reading from `xml` has not been implemented
+
+### 5.2 Challenges
+* Bugs in the dependency gave unexpected results, which took much time to figure and solve.
+* Running out of api query quota for overpass-api
+* 
 
   [1]: https://github.com/ropensci/osmdata/issues/179
   [2]: https://cran.r-project.org/web/packages/osmdata/index.html

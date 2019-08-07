@@ -11,7 +11,7 @@ plot.osmdata <- function(x) {
   plot(sf::st_geometry(x$osm_lines), add=TRUE, col = 'Blue')
 }
 
-#' query overpass object and convert to osmdata object
+#' queries overpass object and convert to osmdata object
 #'
 #' @param q osmtt object
 #' @return osmdata object
@@ -19,8 +19,8 @@ plot.osmdata <- function(x) {
 #' \dontrun{
 #' new_url <- "http://overpass-api.de/api/interpreter"
 #' osmdata::set_overpass_url(new_url)
-#' op<-osmtt("sudal nepal","2019-01-01T12:00:00Z")
-#' op_sf <- osmdata::osmdata_sf(op,quiet = FALSE)
+#' op <- osmtt("sudal nepal","2019-01-01T12:00:00Z")
+#' op_sf <- osmtt_sf(op,quiet = FALSE)
 #' }
 osmtt_sf <- function(q){
   # class(q)
