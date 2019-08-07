@@ -14,7 +14,7 @@ Converts overpass diff xml to osmttdiff object
 }
 \examples{
 \dontrun{
-(od<-osmadiff("sanga","2019-01-01T12:00:00Z"))
+od<-osmadiff("sanga","2019-01-01T12:00:00Z")
 odd<-osmdata:::overpass_query(osmdata::opq_string(od))
 osmttdiff_sf(odd) -> odd_sf
 }

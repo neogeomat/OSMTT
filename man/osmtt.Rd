@@ -4,12 +4,12 @@
 \alias{osmtt}
 \title{Get how the osm data looked at certain time}
 \usage{
-osmtt(bbox, datetime, ...)
+osmtt(bbox, datetime)
 }
 \arguments{
 \item{bbox}{place name or bbox object}
 
-\item{datetime}{The timestamp where you want the data in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z}
+\item{datetime}{The timestamp where you want the data}
 }
 \description{
 Get how the osm data looked at certain time

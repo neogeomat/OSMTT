@@ -37,7 +37,7 @@ OSM Overpass Api supports query for attic data but this feature has not been imp
 
 #### Methods
 * print: 
-* osmttdiff_sf:
+* osmttdiff_sf: Converts overpass diff xml to osmttdiff object
 
 ## 4. How to use
 Attic data may not be supporeted by all overpass servers. First step is to find one which can handle the query.
@@ -45,7 +45,9 @@ Attic data may not be supporeted by all overpass servers. First step is to find 
 # new_url <- "http://overpass-api.de/api/interpreter"
 # osmdata::set_overpass_url(new_url)
 ```
-To get the instance of osm database at a previous version in time, Use `osmtt` object.
+
+### To get the instance of osm database at a previous version in time, Use `osmtt`.
+Specify place and time and form a query object. Place can bbox object or character, if character result from nominatim is used. Time must be in `%Y-%m-%dT%H:%M:%SZ` format e.g. 2019-01-01T12:00:00Z 
 ```{r}
 # op <- osmtt("sudal nepal","2019-01-01T12:00:00Z")
 ```
@@ -58,6 +60,21 @@ Other formats can also be used by directly using the `osmdata` package methods
 # osmdata::osmdata_sp(op)
 # osmdata::osmdata_xml(op)
 ```
+
+### To get the difference of osm database between two time, Use `osmttdiff`.
+Specify place, oldtime and newtime and form query object. Newtime is optional. If omitted, current time is used for newtime.  
+```{r}
+# od<-osmadiff("sanga","2019-01-01T12:00:00Z")
+```
+Query overpass and get xml data
+```{r}
+# odd<-osmdata:::overpass_query(osmdata::opq_string(od))
+```
+Convert overpass diff xml to osmttdiff object
+```{r}
+# odd_sf <- osmttdiff_sf(odd) 
+```
+
 (Note: Queries are commented because query quota was exceeded)
 
 ## 5. Issues, Challenges and Further Works 
@@ -65,6 +82,8 @@ Other formats can also be used by directly using the `osmdata` package methods
 * When overpass api is busy, `osmttdiff` does not handle wait and retry.
 * `osmtt` uses native call to C for parsing in `osmtt_sf`, but is not available in `osmttdiff`. Hence `osmttdiff` processing is slower.
 * Writing `xml` output to file is supported but reading from `xml` has not been implemented
+* `osmttdiff` sometimes gives `node can not be found` error. Source and solution of this is not found. This issue is shown [here](https://stackoverflow.com/questions/57090942/how-to-fix-node-can-not-be-found-in-osmdata-package).
+* In `osmttdiff_sf` direct call to `rcpp_osmdata_sf` of `osmdata` has been made. This is a design issue, but since it calls C interface, similar implementation could not be done through R. 
 
 ### 5.2 Challenges
 * Bugs in the dependency gave unexpected results, which took much time to figure and solve.
@@ -75,6 +94,7 @@ Other formats can also be used by directly using the `osmdata` package methods
 ### 5.3 Further Works
 * Visualization of changes
 * Integration of osmtt and osmttdiff for piping
+* Remove direct calls to dependency methods
 
   [1]: https://github.com/ropensci/osmdata/issues/179
   [2]: https://cran.r-project.org/web/packages/osmdata/index.html

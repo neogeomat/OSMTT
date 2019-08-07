@@ -1,11 +1,7 @@
-#' @export
 print.osmtt <- function(x){
   osmdata::opq_string(x)
 }
 
-#' Plots osmdata using sf plot methods
-#'
-#' @export
 plot.osmdata <- function(x) {
   plot(sf::st_geometry(x$osm_points))
   plot(sf::st_geometry(x$osm_lines), add=TRUE, col = 'Blue')

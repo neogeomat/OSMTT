@@ -4,10 +4,12 @@
 \alias{osmttdiff}
 \title{osmttdiff class def}
 \usage{
-osmttdiff(bbox = NULL, file = NULL,
+osmttdiff(xml, bbox = NULL, file = NULL,
   base_url = "http://overpass-api.de/api", silent = FALSE)
 }
 \arguments{
+\item{xml}{overpass adiff xml}
+
 \item{bbox}{bounding box}
 
 \item{file}{previous export}

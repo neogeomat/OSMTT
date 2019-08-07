@@ -7,11 +7,11 @@
 add_adiff(opq, olddatetime, newdatetime)
 }
 \arguments{
-\item{opq}{An`overpass_query` object}
+\item{opq}{An overpass_query object}
 
-\item{olddatetime}{datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z}
+\item{olddatetime}{datetimestring in the form 2019-01-01T12:00:00Z}
 
-\item{newdatetime}{optional: datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z, if empty current time is used}
+\item{newdatetime}{optional datetimestring in the form 2019-01-01T12:00:00Z, if empty current time is used}
 }
 \value{
 osmdiff object
@@ -20,11 +20,6 @@ osmdiff object
 Add adiff attribute to overpass query
 }
 \examples{
-\dontrun{
 oq <- osmdata::opq('bhaktapur')
-add_date(oq,datetime)
-}
-}
-\references{
-\url{https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date}
+add_adiff(oq,"2019-01-01T12:00:00Z","2019-08-01T12:00:00Z")
 }

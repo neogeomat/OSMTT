@@ -9,7 +9,7 @@ add_date(opq, datetime)
 \arguments{
 \item{opq}{An`overpass_query` object}
 
-\item{datetime}{datetimestring in the form %Y-%m-%dT%H:%M:%SZ e.g. 2019-01-01T12:00:00Z}
+\item{datetime}{datetimestring in the form 2019-01-01T12:00:00Z}
 }
 \value{
 osmtt object
@@ -18,11 +18,6 @@ osmtt object
 Add date attribute to overpass query
 }
 \examples{
-\dontrun{
 oq <- osmdata::opq('bhaktapur')
-add_date(oq,datetime)
-}
-}
-\references{
-\url{https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#date}
+add_date(oq,"2019-01-01T12:00:00Z")
 }
