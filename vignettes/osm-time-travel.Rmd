@@ -69,7 +69,12 @@ Other formats can also be used by directly using the `osmdata` package methods
 ### 5.2 Challenges
 * Bugs in the dependency gave unexpected results, which took much time to figure and solve.
 * Running out of api query quota for overpass-api
-* 
+* Some code were in cpp. Knowledge on this part was limited
+* Documentation on adiff format is limited
+
+### 5.3 Further Works
+* Visualization of changes
+* Integration of osmtt and osmttdiff for piping
 
   [1]: https://github.com/ropensci/osmdata/issues/179
   [2]: https://cran.r-project.org/web/packages/osmdata/index.html

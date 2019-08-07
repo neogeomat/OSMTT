@@ -1,5 +1,6 @@
 #' osmttdiff class def
 #'
+#' @param xml overpass adiff xml
 #' @param bbox bounding box
 #' @param file previous export
 #' @param base_url change if required, default is "http://overpass-api.de/api"
@@ -10,10 +11,11 @@
 #' to provide access to the print method
 #'
 #' @export
-osmttdiff <- function (bbox = NULL, file = NULL, base_url = "http://overpass-api.de/api",
+osmttdiff <- function (xml,bbox = NULL, file = NULL, base_url = "http://overpass-api.de/api",
                      silent = FALSE)
 {
   obj <- list (
+    xml = xml,
     bbox = bbox,
     base_url = base_url,
     silent = silent,
@@ -21,6 +23,6 @@ osmttdiff <- function (bbox = NULL, file = NULL, base_url = "http://overpass-api
     modify = list(),
     delete = list()
     )
-  class (obj) <- append (class (obj), "osmttdiff")
+  class (obj) <- append ("osmttdiff",class (obj))
   return (obj)
 }
